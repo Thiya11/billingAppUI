@@ -12,4 +12,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Added settings menu option to add, edit and view roles.
 - Added settings menu option to view users.
 - Login component added
-- Initial header menu options (Home, Statistics, Bill Genarator, Transactions and Settings) added.
+- Initial header menu options (Home, Statistics, Bill Genarator, Transactions and Settings) are added.
