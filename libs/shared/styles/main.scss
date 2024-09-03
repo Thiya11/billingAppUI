@@ -1,0 +1,242 @@
+@import '../../../apps/biller/src/assets/styles/styles.scss';
+
+html {
+    background-color: #fff;
+}
+
+body {
+    width: 100%;
+}
+
+.custom-header {
+    background-color: $primary_accent_color;
+    color: $secondary_text_color !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.custom-header-brand {
+    font-weight: 800;
+    font-size: 32px;
+}
+
+.custom-header-navbar, .custom-nav-link {
+    color: $secondary_text_color !important;
+}
+
+.btn {
+    border-radius: 2px !important;
+}
+
+.btn-success {
+    background-color: $primary_accent_color !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+.btn-success:hover, .btn-success:active, .btn-success:focus {
+    background-color: $secondary_bg_color !important;
+    border: none !important;
+}
+
+.custom-nav-link {
+    font-weight: 600;
+}
+
+footer {
+    background-color: $primary_accent_color;
+    color: $secondary_text_color;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+.form-padding {
+    padding-top: 150px;
+}
+
+.form-container {
+    // border: 1px solid $secondary_accent_color;
+    border-radius: 5px;
+}
+
+.login-form {
+    max-width: 520px;
+    padding-left: 1rem;
+}
+
+.error-text, .required-text {
+    color: $error_text_color;
+}
+
+.form-group {
+    margin-bottom:1rem;
+}
+
+input[type=text], input[type=password], input[type=textArea] {
+    border: 0.5px solid $secondary_accent_color;
+    border-radius: 1.25px;
+    &:active {
+        outline: none;
+    }
+    &:focus {
+        outline: none;
+        border-color: none;
+    }
+}
+
+input.ng-invalid.ng-touched {
+    box-shadow: none !important;
+    border: 1.25px solid $primary_accent_color !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1.25px solid $primary_accent_color;
+}
+
+//settings component
+.settings-base-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0.5rem 0.5rem;
+}
+
+.settings-base-menu {
+    list-style-type: none;
+    margin-top: 2rem;
+}
+.settings-base-menu li {
+    margin-bottom: 1rem;
+}
+.settings-base-menu li a {
+    font-size: 16px;
+    padding-left: 6px;
+}
+
+.active-settings-menu {
+    border-left: 5px solid $primary_accent_color;
+    background-color: #eeeeee;
+}
+
+.user-list-table {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+}
+
+.user-list-table table {
+    width: 100%;
+    margin-top: 1.25rem;
+    margin-left: 2.5rem;
+}
+
+th{
+    background-color: $primary_accent_color;
+    color: $secondary_text_color;
+}
+
+th,td{
+    text-align: center;
+    border: 1px solid $secondary_accent_color;
+}
+
+.quick-action-icons{
+    margin-left: 0.5rem;
+    color: $primary_accent_color;
+    &:hover{
+        cursor: pointer;
+        color: #000;
+    }
+}
+.users-list-actions{
+    margin-left: 2.5rem;
+}
+
+.settings-side-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1.5rem;
+}
+
+.bi-gear {
+    margin-right: 0.5rem;
+}
+
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.close {
+    margin-top: -2px;
+    float: right;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 2;
+}
+
+.header-light {
+    font-weight: 400;
+    font-size: 2rem;
+    color: $primary_text_color;
+}
+
+.modal-header {
+    display: block !important;
+}
+
+.modal-content {
+    border-radius: 2px !important;
+}
+
+.btn-cancel {
+    background-color: #fff;
+    border: 1px solid $secondary_accent_color;
+    border-radius: 2px;
+}
+
+.btn-cancel:hover, .btn-cancel:active {
+    background-color: #fff;
+    border: 1px solid $secondary_accent_color;
+}
+
+.non-user-select {
+    user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.custom-control {
+    position: relative;
+    display: inline;
+    padding-left: 1.5rem;
+    cursor: pointer;
+}
+
+.custom-control-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-control-description {
+    margin-left: 0.5rem;
+}

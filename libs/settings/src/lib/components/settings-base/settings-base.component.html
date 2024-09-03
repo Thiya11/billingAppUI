@@ -1,0 +1,17 @@
+<div>
+   <div class="text-center mt-2">
+    <h2>SETTINGS</h2>
+   </div>
+   <div class="settings-base-container">
+    <div class="col-2 ">
+        <h6 class="settings-side-header"> <i class="bi bi-gear"></i>Quick Settings</h6>
+        <ul class="settings-base-menu">
+            <li><a class="nav-link fw-bold" routerLink="users-list" routerLinkActive="active-settings-menu">Users List</a></li>
+            <li><a class="nav-link fw-bold" routerLink="roles-list" routerLinkActive="active-settings-menu">Roles List</a></li>
+        </ul>
+    </div>
+    <div class="col-9">
+        <router-outlet></router-outlet>
+    </div>
+   </div>
+</div>

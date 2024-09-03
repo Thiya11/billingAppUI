@@ -1,0 +1,37 @@
+export const MAIN_MENU_LIST = [
+    {
+        label:"Home",
+        key:'home',
+        url:"/home",
+        status:1,
+        partners:["BILL"]
+    },
+    {
+        label:"Statistics",
+        key:'stat',
+        url:"/statistics",
+        status:1,
+        partners:["BILL"]
+    },
+    {
+        label:"Bill Genreator",
+        key:'bill-generator',
+        url:"/bill-generator",
+        status:1,
+        partners:["BILL"]
+    },
+    {
+        label:"Transactions",
+        key:'transactions',
+        url:"/transactions",
+        status:1,
+        partners:["BILL"]
+    },
+    {
+        label:"Settings",
+        key:'settings',
+        url:"/settings",
+        status:1,
+        partners:["BILL"]
+    }
+]

@@ -3,13 +3,38 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "billing": [
+        "dist/billing"
+      ],
+      "core": [
+        "dist/core"
+      ],
+      "dashboard": [
+        "dist/dashboard"
+      ],
+      "inventory": [
+        "dist/inventory"
+      ],
+      "members": [
+        "dist/members"
+      ],
+      "page-not-found": [
+        "dist/page-not-found"
+      ],
+      "settings": [
+        "dist/settings"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitAny": false,
+    "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "strictPropertyInitialization":false,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
