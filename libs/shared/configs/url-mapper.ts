@@ -5,5 +5,8 @@ export const URL_CONFIG = {
     rolesList: 'roles/',
     addRole: 'roles/addRole',
     updateRole: 'roles/',
-    deleteRole: 'roles/deleteRole/'
+    deleteRole: 'roles/deleteRole/',
+    addUser: 'users/addUser',
+    updateUser: 'users/',
+    deleteUser: 'users/deleteUser/'
 }

@@ -5,7 +5,7 @@
       </div>
     <div *ngIf="!apexFired && !showNoDataError">
         <div class="users-list-actions">
-            <button class="col-2 btn btn-success">Add User</button>
+            <button class="col-2 btn btn-success" (click)="onShowUserPopup('Add')">Add User</button>
         </div>
         <div class="user-list-table">
             <table>
@@ -25,7 +25,7 @@
                         <td>{{user.email}}</td>
                         <td>{{user.roleId | arrValueFinder : roles : 'role'}}</td>
                         <td>
-                            <i class="bi bi-pencil quick-action-icons" title="Edit User"></i>
+                            <i class="bi bi-pencil quick-action-icons" title="Edit User" (click)="onShowUserPopup('Edit',user)"></i>
                             <i *ngIf="userDetails.userId != user.userId" class="bi bi-trash quick-action-icons" title="Delete User"></i>
                         </td>
                     </tr>

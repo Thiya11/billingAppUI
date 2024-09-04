@@ -7,8 +7,10 @@ import { CommonModule } from '@angular/common';
 import { RoleInfoComponent } from './components/roles-info/role-info.component';
 import { SharedModule } from 'libs/shared/shared.module';
 import { SharedValidatorsModule } from 'libs/shared/modules/shared-validators.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -16,13 +18,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SettingsBaseComponent,
     RolesListComponent,
     UsersListComponent,
-    RoleInfoComponent
+    RoleInfoComponent,
+    UserInfoComponent
   ],
   imports: [
     SettingsRoutingModule,
     SharedModule,
     SharedValidatorsModule,
     ReactiveFormsModule,
+    NgSelectModule,
     NgbModule,
     CommonModule
   ],
