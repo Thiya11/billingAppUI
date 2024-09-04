@@ -240,3 +240,64 @@ button.close {
 .custom-control-description {
     margin-left: 0.5rem;
 }
+
+//ng-select
+
+ng-select > div {
+    border: 0.5px solid #a0aec0;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    padding: 0.375rem 0.7rem;
+}
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: $primary_text_color !important;
+}
+
+.ng-select > div:focus, .ng-select > div:hover {
+    border: 0.5px solid $secondary_accent_color;
+    outline: none !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label {
+    font-weight: 400 !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items {
+    max-height: 200px !important;
+}
+
+.ng-option-marked, div.options > ul > li.highlighted {
+    background-color: $secondary_accent_color !important;
+}
+
+.ng-select-container {
+    border: 1px solid $secondary_accent_color !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    width: 100% !important;
+    height: auto !important;
+    vertical-align: middle !important;
+    padding-top: 4px !important;
+    border-radius: 0px !important;
+}
+
+.ng-select-opened:not(.ng-select-opened) {
+    border: 1px solid $secondary_accent_color !important;
+    outline: none !important;
+}
+
+.ng-select > .ng-select-container:hover {
+    border: 1px solid $secondary_accent_color !important;
+    outline: none !important;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+    border: 1px solid $secondary_accent_color !important;
+    box-shadow: 0 0 0 0 !important;
+    outline: none !important;
+}

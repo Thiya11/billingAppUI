@@ -81,8 +81,8 @@ export class RolesListComponent implements OnInit{
             roleName: roleObj.roleName,
             status: roleObj.status,
         };
-        if (addOrEdit == 'Edit') {
-            this.httpClient.put(URL_CONFIG.updateRole + roleObj.roleId, reqObj)
+        let url = addOrEdit == 'Edit' ? URL_CONFIG.updateRole + roleObj.roleId : URL_CONFIG.addRole; 
+            this.httpClient.put(url,reqObj)
             .subscribe((data:any)=> {
                 if (data.success) {
                     this.getRoles()
@@ -90,18 +90,6 @@ export class RolesListComponent implements OnInit{
             }, err => {
                 console.log(err)
             })
-        }
-        if (addOrEdit == 'Add') {
-            console.log(reqObj)
-            this.httpClient.put(URL_CONFIG.addRole, reqObj)
-            .subscribe((data:any)=> {
-                if(data.success) {
-                    this.getRoles()
-                }
-            }, err=> {
-                console.log(err);
-            })
-        }
     }
 
     ondeleteRole(roleId:any) {
