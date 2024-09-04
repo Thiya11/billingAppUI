@@ -8,5 +8,5 @@ export const URL_CONFIG = {
     deleteRole: 'roles/deleteRole/',
     addUser: 'users/addUser',
     updateUser: 'users/',
-    deleteUser: 'users/deleteUser/'
+    deleteUser: 'users/delete/'
 }

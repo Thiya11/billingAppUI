@@ -1,5 +1,5 @@
 import { Component, Directive, HostListener, Input } from "@angular/core";
-import { AbstractControl, AbstractControlDirective, FormControl, FormGroup, NG_VALIDATORS, ValidationErrors, Validator, Validators } from "@angular/forms";
+import { AbstractControl, AbstractControlDirective, FormControl, FormGroup, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn, Validators } from "@angular/forms";
 
 @Component({
     selector:'shared-error',
@@ -80,4 +80,11 @@ export class formValidator implements Validator {
         this.formGroup = Form;
         return null;
     }
+}
+
+export const confirmPasswordValidator: ValidatorFn =  (c:AbstractControl) : ValidationErrors | null  => {
+  if (c.get('password')?.value !== c.get('confirmPassword')?.value) {
+    return {passwordMatchError:true};
+  }
+  return null;
 }
