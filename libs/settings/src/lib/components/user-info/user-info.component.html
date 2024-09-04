@@ -64,6 +64,7 @@
             <div class="col-xs-12">
                 <input type="text"  class="form-control" placeholder="Enter Your Email" formControlName="confirmPassword"/>
                 <shared-error name="Confirm Password" [formControlRef]="f.confirmPassword"></shared-error>
+                <span *ngIf="userForm?.errors?.['passwordMatchError']" class="error-text"> Confirm Passsword should match with password</span>
             </div>
         </div>
     </ng-container>

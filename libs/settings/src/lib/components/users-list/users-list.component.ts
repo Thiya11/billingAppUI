@@ -52,7 +52,7 @@ export class UsersListComponent implements OnInit{
     }
 
     reArrangeUsersList() {
-        const index             = this.usersListData.findIndex(obj => obj.user_id == this.userDetails.userId);
+        const index             = this.usersListData.findIndex(obj => obj.userId == this.userDetails.userId);
         const [mainUserDetails] = this.usersListData.splice(index,1);
         this.usersListData.unshift(mainUserDetails);
     }
@@ -91,16 +91,27 @@ export class UsersListComponent implements OnInit{
         let reqObj = {
             firstName: userObj.firstName,
             lastName: userObj.lastName,
+            roleId: userObj.roleId,
             email: userObj.lastName,
             password: userObj.password,
-            roleId: userObj.roleId
+            status:1
         };
 
-        let url = addOrEdit == 'Edit' ? URL_CONFIG.addUser + userObj.userId : URL_CONFIG.updateUser;
+        let url = addOrEdit == 'Edit' ? URL_CONFIG.updateUser + userObj.userId : URL_CONFIG.addUser;
         this.httpClient.put(url,reqObj).subscribe((data:any)=> {
             if(data.success) {
-                console.log('success');
                 this.getUsers();
+            }
+        }, err => {
+            console.log(err)
+        })
+    }
+
+    onDeleteUser(userId) {
+        this.httpClient.delete(URL_CONFIG.deleteUser + userId)
+        .subscribe((data:any)=> {
+            if(data.success) {
+                this.getUsers()
             }
         }, err => {
             console.log(err)

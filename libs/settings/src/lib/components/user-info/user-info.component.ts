@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AbstractControlOptions, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { UserModel } from "../../models/user.model";
 import { EXISTING_ROLES } from "libs/shared/configs/general-values";
+import { confirmPasswordValidator } from "libs/shared/validators/shared-error.validator";
 
 @Component({
     selector:'lib-user-info',
@@ -53,7 +54,8 @@ export class UserInfoComponent implements OnInit {
             lastName: this.fb.control('',Validators.required),
             email: this.fb.control('',Validators.required),
             roleId: this.fb.control(null,Validators.required)
-        });
+        }, 
+        {validators:confirmPasswordValidator} as AbstractControlOptions);
 
         this.userForm.valueChanges.subscribe((formData)=> {
             this.userModel.firstName = formData.firstName;
