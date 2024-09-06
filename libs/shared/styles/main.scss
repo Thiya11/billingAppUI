@@ -50,11 +50,18 @@ footer {
     color: $secondary_text_color;
     text-align: center;
     padding: 20px 0;
+    width: 100%;
+}
+
+.footer-container-fixed {
     margin-top: 50px;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+}
+
+.footer-container {
+    position: relative;
 }
 
 footer p {
@@ -72,7 +79,16 @@ footer p {
 
 .login-form {
     max-width: 520px;
-    padding-left: 1rem;
+    padding-left: 0.15rem;
+}
+
+.register-form-padding {
+    padding-top: 2rem;
+    min-height: 820px;
+}
+
+.register-header {
+    margin-left: 4rem !important;
 }
 
 .error-text, .required-text {
