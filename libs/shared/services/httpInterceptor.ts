@@ -12,7 +12,7 @@ export class AuthInteceptor implements HttpInterceptor{
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let updatedUrl = req.url.startsWith('http') ? req.url : this.baseUrl+req.url;
-        if (req.url !== 'login') {
+        if (req.url !== 'login' && req.url !== 'register') {
             const token = this.storageService.tokenDetails;
             if (token) {
                 req = req.clone({

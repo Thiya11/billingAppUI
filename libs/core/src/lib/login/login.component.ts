@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit(): void {
     this.setFormControls();
-    this.initializeGoogleSignIn()
+    // this.initializeGoogleSignIn()
     // this.socialAuthService.authState.subscribe((user)=> {
     //   this.socialUser = user;
     //   this.isLoggedIn = user != null;
