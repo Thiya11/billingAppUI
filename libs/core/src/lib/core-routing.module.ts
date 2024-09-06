@@ -3,6 +3,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { OverviewComponent } from "./overview/overview.component";
 import { AuthGaurd } from "libs/shared/gaurds/auth.guard";
+import { RegisterComponent } from "./register/register.component";
+import { IsLoggedInGaurd } from "libs/shared/gaurds/isLoggedIn.guard";
 
 const routes:Routes = [
     {
@@ -21,10 +23,19 @@ const routes:Routes = [
     {
     path:'login',
     component:LoginComponent,
+    canActivate:[IsLoggedInGaurd],
     data:[
         {breadCrumbText:'LOGIN'}
     ]
-},
+    },
+    {
+        path:'register',
+        component:RegisterComponent,
+        canActivate:[IsLoggedInGaurd],
+        data:[
+            {breadCrumbText:'REGISTER'}
+        ]
+    },
 ];
 
 @NgModule({

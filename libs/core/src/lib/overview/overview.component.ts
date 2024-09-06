@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-    template:`<div>I'm working</div>`,
+    template:`<div style="min-height:900px">I'm working</div>`,
     selector:'lib-overview'
 })
 

@@ -9,6 +9,7 @@ import { CoreRouterModule } from './core-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedValidatorsModule } from 'libs/shared/modules/shared-validators.module';
 import { OverviewComponent } from './overview/overview.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { OverviewComponent } from './overview/overview.component';
     LoginComponent,
     FooterComponent,
     HeaderComponent,
-    OverviewComponent
+    OverviewComponent,
+    RegisterComponent
   ],
   imports: [
     RouterModule,
