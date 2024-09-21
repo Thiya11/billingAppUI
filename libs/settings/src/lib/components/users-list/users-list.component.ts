@@ -39,9 +39,9 @@ export class UsersListComponent implements OnInit{
     getUsers() {
         this.httpClient.get(URL_CONFIG.usersList)
         .subscribe((data:any)=> {
-         this.showNoDataError = data.length == 0 || !data;
+         this.showNoDataError = data['success'].length == 0 || !data['success'];
          this.apexFired = false;
-         this.usersListData = data;
+         this.usersListData = data['success'];
          this.reArrangeUsersList()
         },
         err=>{

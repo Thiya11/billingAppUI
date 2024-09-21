@@ -19,14 +19,14 @@
                 </thead>
                 <tbody>
                     <tr class="user-item" *ngFor="let user of usersListData">
-                        <td>{{user.userId}}</td>
+                        <td>{{user.id}}</td>
                         <td>{{user.firstName}}</td>
                         <td>{{user.lastName}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.roleId | arrValueFinder : roles : 'role'}}</td>
                         <td>
                             <i class="bi bi-pencil quick-action-icons" title="Edit User" (click)="onShowUserPopup('Edit',user)"></i>
-                            <i *ngIf="userDetails.userId != user.userId" class="bi bi-trash quick-action-icons" title="Delete User" (click)="onDeleteUser(user.userId)"></i>
+                            <i *ngIf="userDetails.id != user.id" class="bi bi-trash quick-action-icons" title="Delete User" (click)="onDeleteUser(user.userId)"></i>
                         </td>
                     </tr>
                 </tbody>

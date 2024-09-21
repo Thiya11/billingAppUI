@@ -6,6 +6,11 @@ html {
 
 body {
     width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    margin: 0;
 }
 
 .custom-header {
@@ -316,4 +321,82 @@ ng-select > div {
     border: 1px solid $secondary_accent_color !important;
     box-shadow: 0 0 0 0 !important;
     outline: none !important;
+}
+
+//inventory page
+
+.inventory-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.inventory-item {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: box-shadow 1s;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+
+.inventory-item:hover {
+    box-shadow:  rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.inventory-section {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.inventory-label {
+    min-width: 60px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.inventory-value {
+    text-align: center;
+}
+
+.inventory-input {
+    height: 5.25vh;
+}
+
+.inventory-input-number {
+    width: 100px;
+    height: 5.25vh;
+}
+
+.margin-top-3 {
+    margin-top: 0.75rem;
+}
+
+.inventory-form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inventory-button-group {
+    display: flex;
+    flex-direction: row;
+}
+
+//error page
+
+.min-height-standard {
+    min-height: 575px;
+}
+
+.error-page {
+    min-height: 505px;
+}
+
+.error-page-image {
+    width: 350px;
+    height: 350px;
+    img {
+        height: inherit;
+    }
 }

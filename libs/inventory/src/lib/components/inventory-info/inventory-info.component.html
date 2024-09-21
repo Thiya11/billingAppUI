@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <button class="close" type="button" data-dismiss="modal" aria-label="close" (click)="onCloseModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2 class="text-center pt-2 header-light">{{inventoryModalTitle}}</h2>
+</div>
+<div class="modal-body">
+   <form [formGroup]="inventoryForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label class="form-label">Inventory Name <span class="required-text">*</span></label>
+        <div class="col-xs-12">
+            <input type="text"  class="form-control" placeholder="Enter Inventory Name" formControlName="itemName"/>
+            <shared-error name="Inventory Name" [formControlRef]="f.itemName"></shared-error>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-label">Price Per Item<span class="required-text">*</span></label>
+        <div class="col-xs-12">
+            <input type="number"  class="form-control" placeholder="Enter Price Per Item" formControlName="pricePerItem"/>
+            <shared-error name="pricePerItem" [formControlRef]="f.pricePerItem"></shared-error>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-label">Quantity Type <span class="required-text">*</span></label>
+        <div class="col-xs-12">
+           <ng-select #roleListRef
+            [clearable]="false"
+            id="quantityList"
+            name="quantityList"
+            placeholder="Select Quantity Type"
+            [items]="quantityTypeList"
+            [multiple]="false"
+            bindLabel="label"
+            bindValue="value"
+            formControlName="quantityType">
+           </ng-select>
+            <shared-error name="Quantity Type" [formControlRef]="f.quantityType"></shared-error>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-label">Tax<span class="required-text">*</span></label>
+        <div class="col-xs-12">
+            <input type="number"  class="form-control" placeholder="Enter Inventory Tax" formControlName="taxes"/>
+            <shared-error name="taxes" [formControlRef]="f.taxes"></shared-error>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-label">Quantity Remaining<span class="required-text">*</span></label>
+        <div class="col-xs-12">
+            <input type="number"  class="form-control" placeholder="Enter Quantity Remaining" formControlName="quantityRemaining"/>
+            <shared-error name="Quantity Remaining" [formControlRef]="f.quantityRemaining"></shared-error>
+        </div>
+    </div>
+    <div class="form-group row m-t-2">
+        <div class="col-xs-12 d-flex flex-direction-row justify-content-evenly">
+          <button class="btn btn-cancel col-4" type="cancel" (click)="onCloseModal()">Cancel</button>
+          <button class="btn btn-success col-4" type="submit">Submit</button>
+        </div> 
+     </div>
+   </form>
+</div>
