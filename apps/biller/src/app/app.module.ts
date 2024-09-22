@@ -8,6 +8,10 @@ import { CoreModule } from 'libs/core/src/lib/core.module';
 import { SettingsModule } from 'libs/settings/src/public-api';
 import { SharedModule } from 'libs/shared/shared.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { InventoryModule } from 'libs/inventory/src/public-api';
+import { PageNotFoundModule } from 'libs/page-not-found/src/public-api';
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -15,13 +19,23 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule ,
     HttpClientModule,
     NgbModule,
     CommonModule,
-    CoreModule,
     AppRoutingModule,
     SettingsModule,
-    SharedModule
+    SharedModule,
+    CoreModule,
+    InventoryModule,
+    PageNotFoundModule,
+    ToastrModule.forRoot(
+      {
+        timeOut:3000,
+        preventDuplicates:true,
+        positionClass:'toast-top-right'
+      }
+    )
   ],
   providers: [
     

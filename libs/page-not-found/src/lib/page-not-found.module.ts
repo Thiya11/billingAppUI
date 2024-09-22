@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { PageNotFoundRouting } from './page-not-found-routing.module';
 
 
 
@@ -8,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
     PageNotFoundComponent
   ],
   imports: [
+    PageNotFoundRouting
   ],
   exports: [
     PageNotFoundComponent

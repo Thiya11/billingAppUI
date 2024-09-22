@@ -9,5 +9,8 @@ export const URL_CONFIG = {
     addUser: 'users/addUser',
     updateUser: 'users/',
     deleteUser: 'users/delete/',
-    registerUser:'register'
+    registerUser:'register',
+    getInventory: 'inventory/',
+    addInventory: 'inventory/add',
+    deleteInventory: 'inventory/delete/'
 }

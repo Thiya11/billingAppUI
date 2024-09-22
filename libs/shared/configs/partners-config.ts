@@ -7,9 +7,9 @@ export const MAIN_MENU_LIST = [
         partners:["BILL"]
     },
     {
-        label:"Statistics",
-        key:'stat',
-        url:"/statistics",
+        label:"Inventory",
+        key:'inventory',
+        url:"/inventory",
         status:1,
         partners:["BILL"]
     },

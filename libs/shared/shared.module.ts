@@ -4,13 +4,18 @@ import { AuthInteceptor } from "./services/httpInterceptor";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ArrayValueFinder } from "./pipes/arrValueFinder.pipe";
 import { ValidatorErrorMessage } from "./validators/shared-error.validator";
+import { InventoryTypePipe } from "./pipes/inventoryType.pipe";
+import { ToastrModule } from "ngx-toastr";
+import { SearchPipe } from "./pipes/search.pipe";
 
 @NgModule({
     imports:[
-        CommonModule   
+        CommonModule
     ],
     declarations:[
-        ArrayValueFinder
+        ArrayValueFinder,
+        InventoryTypePipe,
+        SearchPipe
     ],
     providers:[
         {
@@ -18,7 +23,9 @@ import { ValidatorErrorMessage } from "./validators/shared-error.validator";
         }
     ],
     exports:[
-        ArrayValueFinder
+        ArrayValueFinder,
+        InventoryTypePipe,
+        SearchPipe
     ]
 })
 

@@ -34,9 +34,9 @@ export class RolesListComponent implements OnInit{
     getRoles() {
         this.httpClient.get(URL_CONFIG.rolesList)
         .subscribe((data:any)=> {
-         this.showNoDataError = data.length == 0 || !data;
+         this.showNoDataError = data['success'].length == 0 || !data['success'];
          this.apexFired = false;
-         this.rolesListData = data;
+         this.rolesListData = data['success'];
         },
         err=>{
          this.apexFired = false;
