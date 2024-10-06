@@ -12,5 +12,7 @@ export const URL_CONFIG = {
     registerUser:'register',
     getInventory: 'inventory/',
     addInventory: 'inventory/add',
-    deleteInventory: 'inventory/delete/'
+    deleteInventory: 'inventory/delete/',
+    addnewBill: 'billing/add',
+    getBillInfo: 'billing/'
 }

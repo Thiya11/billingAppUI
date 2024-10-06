@@ -1,6 +1,7 @@
 export class InventoryModal {
     public itemId?: number;
     public itemName: string;
+    public category: number;
     public pricePerItem: number;
     public quantityType: any;
     public taxes: number;
@@ -9,7 +10,7 @@ export class InventoryModal {
 
     constructor() {
         this.itemName     = ''
-        this.pricePerItem = this.quantityRemaining = this.taxes = NaN;
+        this.pricePerItem = this.quantityRemaining = this.taxes = this.category = NaN;
         this.quantityType = null
     }
 }

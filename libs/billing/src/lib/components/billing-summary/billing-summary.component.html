@@ -1,0 +1,47 @@
+<div class="modal-header billing-summary-modal">
+    <button class="close" type="button" data-dismiss="modal" aria-label="close" (click)="activeModal.close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2 class="text-center pt-2 header-light">Billing Summary</h2>
+</div>
+<div class="modal-body">
+    <div class="quick-info">
+        <label class="fw-bold">Bill Id: <span class="fw-light">{{billData.billId}}</span></label>
+        <label class="fw-bold">Date: <span class="fw-light">{{billTime[1]}}</span></label>
+        <label class="fw-bold">Time: <span class="fw-light">{{billTime[0]}}</span></label>
+    </div>
+    <table class="bill-summary-table">
+        <thead>
+            <th *ngFor="let head of summaryFields">{{head}}</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let purchasedItem of purchasedItems">
+                <td>{{purchasedItem.itemId}}</td>
+                <td>{{purchasedItem.itemName}}</td>
+                <td>{{purchasedItem.pricePerItem}}</td>
+                <td>{{purchasedItem.quantity}}</td>
+                <td>{{purchasedItem.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="border-line"></div>
+    <div class="bill-payment-info">
+        <div class="col-12">
+            <label class="fw-bold">Sub Total </label>
+            <span class="fw-light">{{billData.totalPrice < 10 ? '0' + billData.totalPrice : billData.totalPrice }}</span>
+        </div>
+        <div class="col-12">
+            <label class="fw-bold">Total Tax</label>
+            <span class="fw-light">{{billData.totalTax < 10 ? '0' + billData.totalTax : billData.totalTax}}</span>
+        </div>
+    </div>
+    <div class="border-line"></div>
+    <div class="col-12 bill-total">
+        <label class="fw-bold bill-amount">Total Amount</label>
+        <span class="fw-bold">{{totalAmount}}</span>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-cancel">Check Other Bills</button>
+    <button class="btn btn-success" (click)="activeModal.close()">Close</button>
+</div>

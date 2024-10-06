@@ -5,8 +5,15 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 
 export class InventoryTypePipe implements PipeTransform {
-    transform(value: any) {
-        return value.replace('I', 'Item')
+    transform(value: any, args) {
+        if (args == 'category') {
+          return value.toString().replace('1','Cake')
+        }
+        if (args == 'quantityType') {
+         return value.replace('I', 'Item')
+                     .replace('p', 'Piece')
+        }
+        return value;
     }
     
 }
