@@ -12,6 +12,8 @@ import { InventoryModule } from 'libs/inventory/src/public-api';
 import { PageNotFoundModule } from 'libs/page-not-found/src/public-api';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BillingModule } from 'libs/billing/src/public-api';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserAnimationsModule ,
     HttpClientModule,
     NgbModule,
+    BillingModule,
     CommonModule,
     AppRoutingModule,
     SettingsModule,

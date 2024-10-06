@@ -6,6 +6,7 @@ export const ERROR_MESSAGES = {
 export const INVENTORY_VISIBLE_FIELDS = [
     {label:'Inventory Id', value:'itemId'},
     {label:'Inventory Name', value:'itemName'},
+    {label:'Category', value:'category'},
     {label:'Price Per Item', value:'pricePerItem'},
     {label:'Quantity Type', value:'quantityType'},
     {label:'Tax', value:'taxes'},
@@ -25,4 +26,8 @@ export const QUANTITY_TYPE_OPTIONS = [
     {label: 'kilo', value:'kg'},
     {label: 'Litre', value:'L'},
     {label: 'Piece', value:'p'}
+]
+
+export const QUANTITY_CATEGORY_LIST = [
+    {label:"Cake", value: 1},
 ]

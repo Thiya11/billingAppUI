@@ -25,4 +25,8 @@ export class CommonService {
         this.storageService.deleteUserDetails();
         return true;
     }
+
+    getCurrentTimeZone() {
+       return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    }
 }

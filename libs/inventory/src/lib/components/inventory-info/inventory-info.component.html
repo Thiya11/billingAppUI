@@ -14,10 +14,20 @@
         </div>
     </div>
     <div class="form-group row">
-        <label class="form-label">Price Per Item<span class="required-text">*</span></label>
+        <label class="form-label">Category <span class="required-text">*</span></label>
         <div class="col-xs-12">
-            <input type="number"  class="form-control" placeholder="Enter Price Per Item" formControlName="pricePerItem"/>
-            <shared-error name="pricePerItem" [formControlRef]="f.pricePerItem"></shared-error>
+            <ng-select #categoryListRef
+             [clearable]="false"
+             id="categoryList"
+             name="categoryList"
+             placeholder="Select Item Category"
+             [items]="categoryList"
+             [multiple]="false"
+             bindLabel="label"
+             bindValue="value"
+             formControlName="category">
+            </ng-select>
+            <shared-error name="Category" [formControlRef]="f.category"></shared-error>
         </div>
     </div>
     <div class="form-group row">
@@ -35,6 +45,15 @@
             formControlName="quantityType">
            </ng-select>
             <shared-error name="Quantity Type" [formControlRef]="f.quantityType"></shared-error>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-label">Price Per {{selectedQuantity || 'Item'}}<span class="required-text">*</span></label>
+        <div class="col-xs-12">
+            <input type="number"  class="form-control" 
+             [placeholder]="selectedQuantity ? 'Enter Price Per ' + selectedQuantity : 'Enter Price Per Item'" 
+             formControlName="pricePerItem"/>
+            <shared-error [name]="selectedQuantity ? 'Price per ' + selectedQuantity : 'Price per item'" [formControlRef]="f.pricePerItem"></shared-error>
         </div>
     </div>
     <div class="form-group row">

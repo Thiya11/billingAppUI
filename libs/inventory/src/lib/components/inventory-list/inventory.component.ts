@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { URL_CONFIG } from 'libs/shared/configs/url-mapper';
 import { InventoryModal } from '../../inventory-modal';
-import { INVENTORY_VISIBLE_FIELDS, QUANTITY_TYPE_OPTIONS } from 'libs/shared/configs/general-values';
+import { INVENTORY_VISIBLE_FIELDS, QUANTITY_CATEGORY_LIST, QUANTITY_TYPE_OPTIONS } from 'libs/shared/configs/general-values';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { InventoryInfoComponent } from '../inventory-info/inventory-info.component';
@@ -20,13 +20,15 @@ export class InventoryComponent implements OnInit {
   public errorMap:any;
   public searchTerm:string;
   public elementRef:NgbModalRef;
+  public quantityList = QUANTITY_CATEGORY_LIST;
   public errorOrderMap = new Map(
     [
       ['Inventory Name', 1],
-      ['Price Per Item', 2],
-      ['Quantity Type', 3],
-      ['Tax', 4],
-      ['Quantity Remaining', 5]
+      ['Category', 2],
+      ['Price Per Item', 3],
+      ['Quantity Type', 4],
+      ['Tax', 5],
+      ['Quantity Remaining', 6]
     ]
   )
 
@@ -44,11 +46,20 @@ export class InventoryComponent implements OnInit {
    setErrorMap() {
      this.errorMap = new Map ([
       ['itemName', 'Inventory Name'],
+      ['category', 'Category'],
       ['pricePerItem', 'Price Per Item'],
       ['quantityType', 'Quantity Type'],
       ['taxes', 'Tax'],
       ['quantityRemaining', 'Quantity Remaining']
      ])
+   }
+
+   onChangeCategory(event) {
+    console.log(event)
+     this.inventoryList = this.inventoryList.filter((item) => {
+      return item.category.toString() === event.toString()
+     })
+     console.log(this.inventoryList)
    }
 
    onShowInventoryModal() {
