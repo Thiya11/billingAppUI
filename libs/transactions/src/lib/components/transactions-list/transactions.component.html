@@ -1,0 +1,56 @@
+<div class="transactions-container container">
+    <div class="transaction-header">
+        <div class="col-9">
+            <div class="transaction-search col-3 mt-3 form-group">
+                <label class="form-label">Search</label>
+                <div class="search-transaction">
+                    <input class="form-control" type="text" [formControl]="searchTerm" placeholder="Enter Bill Id">
+                    <button class="btn btn-success" (click)="getAllTransactions()"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-1 mt-3">
+            <label class="form-label">Item Per Page</label>
+            <ng-select
+             #itemPerPage
+             [items]="itemPerPageList"
+             placeholder="Select Item Per Page"
+             [formControl]="selectItemPerPage"
+             bindLabel="label"
+             bindValue="value"
+             [searchable]="false"
+             [clearable]="false"
+             [multiple]="false">
+            </ng-select>
+        </div>
+    </div>
+    <div class="transaction-body">
+        <table class="transactions-table" *ngIf="transactionData.length">
+            <thead>
+                <th *ngFor="let head of visibleHeaders">{{head}}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactionData">
+                  <td>{{transaction.bill_id}}</td>
+                  <td>{{transaction.user_id}}</td>
+                  <td>{{transaction.bill_date}}</td>
+                  <td>{{transaction.bill_time}}</td>
+                  <td>{{transaction.total_price}}</td>
+                  <td>{{transaction.total_tax}}</td>
+                  <td>{{transaction.total_price + transaction.total_tax}}</td>
+                  <td>
+                    <i class="bi bi-eye quick-action-icons" title="view" (click)="getTransactionDetail(transaction.bill_id)"></i>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="error-message" *ngIf="!transactionData.length">
+            <h6 class="text-center"> No Bill Details Found </h6>
+        </div>
+    </div>
+    <div class="pagination-container" *ngIf="transactionData.length">
+        <button class="bi bi-arrow-left-circle pagination-arrows" [disabled]="currentPage === 1" (click)="onChangePage(currentPage - 1)"></button>
+         <span>Page {{currentPage}} of {{availablePages}}</span>
+        <button class="bi bi-arrow-right-circle pagination-arrows" [disabled]="currentPage === availablePages" (click)="onChangePage(currentPage + 1)"></button>
+    </div>
+</div>

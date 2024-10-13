@@ -29,4 +29,15 @@ export class CommonService {
     getCurrentTimeZone() {
        return Intl.DateTimeFormat().resolvedOptions().timeZone;
     }
+
+    getCurrentTimeZoneTime(billDate) {
+       let dateTime                =  new Date(billDate).toLocaleString(undefined).split(', ');
+       let [timeFormatted, period] =  dateTime[1].split(' ')
+       let [hours, minutes]        = timeFormatted.split(':')
+       hours                       = Number(hours) < 10 ? '0' + hours : hours;
+       return {
+         date: dateTime[0],
+         time: hours + ':' + minutes + ' ' + period.toUpperCase()
+       }
+    }
 }

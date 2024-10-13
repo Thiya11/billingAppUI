@@ -1,0 +1,54 @@
+<div class="container mt-2">
+    <div class="transaction-info-header mt-3">
+        <h3 class="card-title-text">Bill Details</h3>
+        <div class="bill-quick-info">
+            <label class="body-emphasized-text">Bill Id: <span class="body-regular-text">{{billDetails.billId}}</span></label>
+            <label class="body-emphasized-text">Date: <span class="body-regular-text">{{dateTime.date}}</span></label>
+            <label class="body-emphasized-text">Time: <span class="body-regular-text">{{dateTime.time}}</span></label>
+        </div>
+    </div>
+    <div class="transaction-info-body">
+        <div class="transaction-info-items mt-2">
+            <h3 class="card-title-text">Purchased Items</h3>
+            <div class="transaction-info">
+                <table class="transaction-info-table">
+                    <thead class="body-emphasized-text">
+                        <tr>
+                            <th *ngFor="let billHead of availableHeaders"> {{billHead}} </th>
+                        </tr>
+                    </thead>
+                    <tbody class="body-regular-text">
+                        <tr *ngFor="let bill of billDetails.purchasedItems">
+                            <td>{{bill.itemId}}</td>
+                            <td>{{bill.itemName}}</td>
+                            <td>{{bill.category}}</td>
+                            <td>{{bill.pricePerItem}}</td>
+                            <td>{{bill.quantityType}}</td>
+                            <td>{{bill.tax}}</td>
+                            <td>{{bill.quantity}}</td>
+                            <td>{{bill.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+        <div class="transaction-info-summary mt-2">
+            <h3 class="card-title-text">Bill Summary</h3>
+            <div class="transaction-summary">
+               <div class="transaction-summary-item">
+                   <label class="body-emphasized-text">Total Price (₹): </label> 
+                   <span class="body-regular-text">{{billDetails.totalPrice}}</span>
+               </div>
+                <div class="transaction-summary-item">
+                    <label class="body-emphasized-text">Total Tax (₹): </label>
+                    <span class="body-regular-text">{{ billDetails.totalTax}}</span>
+                </div>
+                <div class="transaction-summary-item">
+                    <label class="body-emphasized-text">Total Amount (₹): </label>
+                    <span class="body-bolder-text">{{totalAmountPaid}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

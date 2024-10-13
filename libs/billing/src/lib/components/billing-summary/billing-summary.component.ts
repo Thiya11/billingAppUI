@@ -24,7 +24,7 @@ export class BillingSummaryComponent implements OnInit {
     ){}
     
     ngOnInit(): void {
-        this.billTime       = new Date(this.billData.billDate).toLocaleString('en-IN', {timeZone:this.commonService.getCurrentTimeZone()}).split(',');
+        this.billTime       = this.commonService.getCurrentTimeZoneTime(this.billData.billDate);
         this.purchasedItems = this.billData.purchasedItems; 
         this.totalAmount    = Number(this.billData.totalTax) + Number(this.billData.totalPrice);
     }

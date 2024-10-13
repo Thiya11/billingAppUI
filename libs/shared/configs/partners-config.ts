@@ -2,6 +2,7 @@ export const MAIN_MENU_LIST = [
     {
         label:"Home",
         key:'home',
+        icon:'bi-house',
         url:"/home",
         status:1,
         partners:["BILL"]
@@ -9,6 +10,7 @@ export const MAIN_MENU_LIST = [
     {
         label:"Inventory",
         key:'inventory',
+        icon:'bi-boxes',
         url:"/inventory",
         status:1,
         partners:["BILL"]
@@ -16,12 +18,14 @@ export const MAIN_MENU_LIST = [
     {
         label:"Bill Genreator",
         key:'bill-generator',
+        icon:'bi-receipt',
         url:"/bill-generator",
         status:1,
         partners:["BILL"]
     },
     {
         label:"Transactions",
+        icon:'bi-cash-stack',
         key:'transactions',
         url:"/transactions",
         status:1,
@@ -29,6 +33,7 @@ export const MAIN_MENU_LIST = [
     },
     {
         label:"Settings",
+        icon:'bi-gear',
         key:'settings',
         url:"/settings",
         status:1,

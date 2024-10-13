@@ -9,8 +9,16 @@
       bindValue="itemId"
       [multiple]="false"
       [clearable]="false"
-      placeholder="Select Item"
+      [searchFn]="customSearchFn"
+      placeholder="Enter Item Name or Item Id"
       (change)="onInventoryChange($event)">
+      <ng-template ng-option-tmp let-item="item" let-index="index">
+         <div class="option-template">
+           <span class="item-id"> {{'[' + item.itemId + '] '}} - </span>
+           <span class="item-value"> {{item.itemName}} - </span>
+           <span class="item-id"> [ {{item.category | inventoryType : 'category'}} ]</span>
+         </div>
+      </ng-template>
       </ng-select>
      </div>
    </div>
@@ -25,7 +33,7 @@
   </div>
   <div class="bill-section container p-2 mt-3">
     <ng-container *ngIf="selectedItemsArr.length">
-      <div class="bill-item p-2 card col-11">
+      <div class="bill-item p-2 col-11">
         <table>
           <thead>
             <th *ngFor="let heading of availableBillingKeys">{{heading}}</th>
