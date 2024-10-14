@@ -14,5 +14,6 @@ export const URL_CONFIG = {
     addInventory: 'inventory/add',
     deleteInventory: 'inventory/delete/',
     addnewBill: 'billing/add',
-    getBillInfo: 'billing/'
+    getBillInfo: 'billing/',
+    getAllTransactions: 'transactions/list/',
 }

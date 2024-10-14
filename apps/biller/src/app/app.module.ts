@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BillingModule } from 'libs/billing/src/public-api';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { TransactionsModule } from 'libs/transactions/src/lib/transactions.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SharedModule,
     CoreModule,
     InventoryModule,
+    TransactionsModule,
     PageNotFoundModule,
     ToastrModule.forRoot(
       {

@@ -31,3 +31,6 @@ export const QUANTITY_TYPE_OPTIONS = [
 export const QUANTITY_CATEGORY_LIST = [
     {label:"Cake", value: 1},
 ]
+
+export const BILL_GEN_VISIBILE_FIELDS        = ['Item Id', 'Item Name', 'Category Id', 'Price Per Quantity (₹)', 'Quantity Type', 'Tax (%)', 'Quantity', 'Price (₹)', 'Quick Actions'];
+export const TRANSACTION_INFO_VISIBLE_FIELDS = ['Item Id', 'Item Name', 'Category Id', 'Price Per Quantity (₹)', 'Quantity Type', 'Tax (₹)', 'Quantity', 'Price (₹)'] 

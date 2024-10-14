@@ -25,6 +25,9 @@
       ],
       "settings": [
         "dist/settings"
+      ],
+      "transactions": [
+        "dist/transactions"
       ]
     },
     "outDir": "./dist/out-tsc",

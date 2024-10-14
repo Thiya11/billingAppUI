@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2024-10-06
+### Added
+- Added new Feature to list transactions.
+- New feature to view detailed transactions.
+- API integration for list and view transactions.
+- Added search functionality in Transactions list.
+
+### Changes
+- Added changes in quick search functionality in generate bill to search by id, name and category.
+- Added CSS changes to improve User impression
+- Table layout changes on the all module
+- Header and footer css changes to improve User experience
+
+### Fixes
+- Bill summary time is not showing properly issue fixed.
+
+**NOTE:** Versions progressed from 0.2.1 to 0.2.9, incorporating multiple new features into the application.
+
 ## [0.2.0] - 2024-10-06
 ### Added
 - Added new Feature to generate new bill.

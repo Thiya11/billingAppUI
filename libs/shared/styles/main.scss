@@ -1,21 +1,29 @@
 @import '../../../apps/biller/src/assets/styles/styles.scss';
 
 html {
-    background-color: #fff;
+    background-color: $grey-light;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     width: 100%;
     overflow-x: hidden;
+    font-family: $font-style;
+    background-color: $grey-light;
 }
 
 header {
-    margin: 0;
+    margin: 0.5rem;
 }
 
 .custom-header {
     background-color: $primary_accent_color;
-    color: $secondary_text_color !important;
+    color: $white !important;
+    margin: 0.5rem;
+    border-radius: 18px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,12 +35,23 @@ header {
     font-size: 32px;
 }
 
+.nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0.5rem;
+}
+
+.custom-header-navbar ul {
+    margin-left: 4rem;
+}
+
 .custom-header-navbar, .custom-nav-link {
-    color: $secondary_text_color !important;
+    color: $white !important;
 }
 
 .btn {
-    border-radius: 2px !important;
+    border-radius: 5px !important;
 }
 
 .btn-success {
@@ -52,10 +71,11 @@ header {
 
 footer {
     background-color: $primary_accent_color;
-    color: $secondary_text_color;
+    color: $white;
+    margin: 0.5rem;
+    border-radius: 18px;
     text-align: center;
     padding: 20px 0;
-    width: 100%;
 }
 
 .footer-container-fixed {
@@ -63,6 +83,7 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    width: 99%;
 }
 
 .footer-container {
@@ -160,6 +181,7 @@ input.ng-invalid.ng-touched {
     width: 100%;
     margin-top: 1.25rem;
     margin-left: 2.5rem;
+    background-color: transparent;
 }
 
 th{
@@ -391,7 +413,7 @@ ng-select > div {
 //error page
 
 .min-height-standard {
-    min-height: 575px;
+    min-height:541px;
 }
 
 .error-page {
@@ -502,3 +524,207 @@ ng-select > div {
     margin: 0.5rem 0;
     border-bottom: 1px dotted $primary_accent_color;
 }
+
+//transations
+
+.transaction-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-transaction {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-transaction button {
+    margin-left: 0.25rem;
+}
+
+.transaction-body {
+    height: 55vh;
+    width: inherit;
+}
+
+.transactions-table {
+    width: inherit;
+}
+
+.transactions-table tbody {
+    display: block;
+    height: 50vh;
+    border: none !important;
+    overflow-y: auto;
+}
+
+.transactions-table tbody tr td {
+    border: none;
+}
+
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 0.74rem;
+
+}
+
+.pagination-arrows {
+    border: none;
+    background: none;
+    font-size: 24px;
+}
+
+.pagination-arrows:hover {
+    color: #a0aec0;
+}
+
+.transaction-info-header {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+}
+
+.bill-quick-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-info-body {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.transaction-info-items {
+    flex: 3;
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    background-color: $white;
+}
+
+table {
+    width: 100%;
+}
+
+.transaction-info-summary {
+    flex: 1;
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    background-color: $white;
+}
+
+.transaction-summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-summary label {
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.transaction-summary label span {
+    font-weight: 400;
+}
+
+.transaction-summary-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-title-text {
+    font-weight: $fw-extra-bold;
+    font-size: $font-extra-large;
+    color: $blue-dark;
+}
+
+.body-regular-text {
+    font-size: $font-regular;
+    font-weight: $fw-regular;
+    color: $black-secondary;
+}
+
+.body-emphasized-text {
+    font-size: $font-regular;
+    font-weight: $fw-bold;
+    color: $blue-dark;
+}
+
+.body-bolder-text {
+    font-size: $font-largest;
+    font-weight: $fw-bold;
+    color: $blue-dark;
+}
+
+.transaction-info {
+    height: 40vh;
+}
+
+table {
+    margin-top: 0.33rem;
+    border: none !important; 
+    text-align: left;
+    border-radius: 12px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+thead {
+    background-color: $grey-territory !important;
+    border-radius: 24px;
+}
+
+thead th {
+    padding: 0.5rem;
+    border: none !important; 
+    border-radius: 24px;
+    background-color: $grey-territory;
+    color: $blue-dark;
+}
+
+.transaction-info-table tbody {
+    display: block;
+    height: 26vh;
+    border: none !important;
+    overflow-y: auto;
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border: none !important;
+}
+
+tbody tr:nth-child(even){
+    background-color: $grey-secondary;
+    border-radius: 16px;
+}
+
+tbody tr td {
+    padding: 0.25rem;
+    border: none;
+    border-bottom: 1px solid $grey-light;
+}
+
+::-webkit-scrollbar{
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $grey-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $blue-dark;
+    border-radius: 3px;
+}
+
+@import url('./responsive.scss');

@@ -5,6 +5,7 @@ import { BillItemModal } from '../../modals/bill-item.modal';
 import { StorageService } from 'libs/shared/services/storage.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { BillingSummaryComponent } from '../billing-summary/billing-summary.component';
+import { BILL_GEN_VISIBILE_FIELDS } from 'libs/shared/configs/general-values';
 
 @Component({
   selector: 'lib-billing',
@@ -19,7 +20,7 @@ export class BillingComponent implements OnInit {
   public totalPrice: number = 0;
   public totalTaxes: number = 0;
   public totalAmountPayable: number = 0;
-  public availableBillingKeys = ['Item Id', 'Item Name', 'Category Id', 'Price Per Quantity', 'Quantity Type', 'Tax(%)', 'Quantity', 'Price', 'Quick Actions'];
+  public availableBillingKeys = BILL_GEN_VISIBILE_FIELDS;
   public billInfo:any;
   public elementRef:NgbModalRef;
   
@@ -149,7 +150,7 @@ export class BillingComponent implements OnInit {
       'userId': this.storageService.userDetails.id,
       'totalPrice': this.totalPrice,
       'totalTax': this.totalTaxes,
-      'billDate': new Date(),
+      'billDate': new Date().toLocaleString(),
       'purchasedItems': this.purchasedItemsSummary()
      }
      this.httpClient.post(URL_CONFIG.addnewBill, postData)
@@ -162,6 +163,11 @@ export class BillingComponent implements OnInit {
      (err) => {
        console.log('Something went wrong')
      })
+  }
+
+  customSearchFn(term:string, item:any): boolean {
+    term = term.toLowerCase();
+    return item.itemName.includes(term) || item.itemId.toString().includes(term) || item.category.toString().includes(term);
   }
 
 }
