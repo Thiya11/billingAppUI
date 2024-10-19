@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedValidatorsModule } from 'libs/shared/modules/shared-validators.module';
 import { OverviewComponent } from './overview/overview.component';
 import { RegisterComponent } from './register/register.component';
+import { SharedComponentsModule } from 'libs/shared/components/shared-component.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     CoreRouterModule,
     ReactiveFormsModule,
     SharedValidatorsModule,
-  ],
+    SharedComponentsModule
+],
   providers:[
   ],
   exports: [

@@ -1,0 +1,64 @@
+<div class="overview-container mb-3">
+    <!-- <div class="quick-info-cards">
+
+    </div> -->
+  <div class="graph-row-first">
+    <div class="graph-top-left">
+        <div class="spinner-container" *ngIf="comparisionAjaxFired">
+            <div class="spinner-border">
+            </div>
+        </div>
+        <div class="transaction-graph" *ngIf="!comparisionAjaxFired">
+            <lib-comparision-graph type="taxComparision" [graphLabels]="transactionAndTaxTimeRange" 
+             [graphValues]="transactionAndTaxArr" [selectedTaxTime]="initialTaxRange">
+            </lib-comparision-graph>
+        </div>
+    </div>
+    <div class="graph-top-right">
+        <div class="spinner-container" *ngIf="categoryWiseAjaxFired">
+            <div class="spinner-border">
+            </div>
+        </div>
+        <div class="transaction-graph" *ngIf="!categoryWiseAjaxFired">
+            <lib-pie-graph type="categorySales" 
+             [graphValues]="categorySaleAmount" [selectedCategoryTimeRange]="initialCategorySalesRange">
+            </lib-pie-graph>
+        </div>
+    </div>
+  </div>
+  <div class="graph-row-third">
+    <div class="graph-middle-left">
+        <div class="spinner-container"  *ngIf="transactionAjaxFired">
+            <div class="spinner-border">
+            </div>
+        </div>
+        <div class="transaction-graph" *ngIf="!transactionAjaxFired">
+            <lib-bar-graph type="transaction" [graphLabels]="transactionTimeRange" 
+             [graphValues]="transactionAmtOverTimeArr" [selectedTransactionTime]="initialTransactionRange">
+            </lib-bar-graph>
+        </div>
+    </div>
+    <div class="graph-middle-right">
+        <div class="spinner-container" *ngIf="transactionCountAjaxFired">
+            <div class="spinner-border">
+            </div>
+        </div>
+        <div class="transaction-graph" *ngIf="!transactionCountAjaxFired">
+            <lib-line-graph type="transactionCount" [graphLabels]="transactionCountTimeRange" 
+             [graphValues]="transactionCountValueArr" [selectedTransactionTime]="initialTransactionCountRange">
+            </lib-line-graph>
+        </div>
+    </div>
+  </div>
+  <div class="graph-row-second">
+    <div class="spinner-container" *ngIf="inventoryAjaxFired">
+        <div class="spinner-border">
+        </div>
+    </div>
+    <div class="inventory-graph" *ngIf="!inventoryAjaxFired">
+        <lib-bar-graph type="inventory" [graphLabels]="inventoryQuantityLabel"
+         [graphValues]="inventoryQuantityArr" [selectedInventoryCategory]="initialInventoryCategory">
+        </lib-bar-graph>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="graph-box">
+    <div class="graph-header row">
+        <h2 class="card-title-text col-8">
+            Category Wise Sales over Time
+        </h2>
+        <div class="form-group col-4">
+            <ng-select *ngIf="type === 'categorySales'" 
+                class="graph-select body-regular-text"
+                [items]="timeRangeOptions"
+                [(ngModel)]="selectedCategoryTimeRange"
+                (change)="onCategoryTimeRangeChange($event.value)"
+                bindLabel="label"
+                bindValue="value"
+                [multiple]="false"
+                [clearable]="false"
+                [searchable]="false"
+            >    
+            </ng-select>
+        </div>
+    </div>
+    <div class="bar-graph" style="height:350px;" *ngIf="graphValues.length" id="#transactionBarGraph" echarts [options]="graphOptions">
+    </div>
+    <div class="no-data-message" *ngIf="!graphValues.length">
+        <p class="body-emphasized-text" *ngIf="type === 'categorySales'">
+            No data found for the selecte time range.<br/>Please select other time range.
+        </p>
+    </div>
+</div>

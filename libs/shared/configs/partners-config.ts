@@ -1,9 +1,9 @@
 export const MAIN_MENU_LIST = [
     {
-        label:"Home",
-        key:'home',
+        label:"Overview",
+        key:'overview',
         icon:'bi-house',
-        url:"/home",
+        url:"/overview",
         status:1,
         partners:["BILL"]
     },
