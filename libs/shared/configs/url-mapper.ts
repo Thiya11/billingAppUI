@@ -16,4 +16,8 @@ export const URL_CONFIG = {
     addnewBill: 'billing/add',
     getBillInfo: 'billing/',
     getAllTransactions: 'transactions/list/',
+    getTransactionAmount:'analysis/transactionAmount',
+    getInventoryQuant:'analysis/inventoryQuantity/',
+    getCategorySales:'analysis/totalCategorySales',
+    getTransactionCount:'analysis/totalTransactions'
 }

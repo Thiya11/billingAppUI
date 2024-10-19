@@ -1,0 +1,43 @@
+<div class="graph-box">
+    <div class="graph-header row">
+        <h2 class="card-title-text" [ngClass]="type === 'inventory' ? 'col-10' : 'col-8'">
+            {{type == 'transaction' ? 'Transactions Amount Over Time' : 'Inventory Quantity' }}
+        </h2>
+        <div class="form-group"  [ngClass]="type === 'inventory' ? 'col-2' : 'col-4'">
+            <ng-select *ngIf="type == 'transaction'" 
+                class="graph-select body-regular-text"
+                [items]="timeRangeOptions"
+                [(ngModel)]="selectedTransactionTime"
+                (change)="onChangeTimeRange($event.value)"
+                bindLabel="label"
+                bindValue="value"
+                [multiple]="false"
+                [clearable]="false"
+                [searchable]="false"
+            >    
+            </ng-select>
+            <ng-select *ngIf="type == 'inventory'" 
+                class="graph-select body-regular-text"
+                [items]="inventoryCategoryList"
+                [(ngModel)]="selectedInventoryCategory"
+                (change)="onChangeInventoryCategory($event.value)"
+                bindLabel="label"
+                bindValue="value"
+                [multiple]="false"
+                [clearable]="false"
+                [searchable]="false"
+            >    
+            </ng-select>
+        </div>
+    </div>
+    <div class="bar-graph" style="height:350px;" *ngIf="graphLabels.length && graphValues.length" id="#transactionBarGraph" echarts [options]="graphOptions">
+    </div>
+    <div class="no-data-message" *ngIf="!graphLabels.length || !graphValues.length">
+        <p class="body-emphasized-text" *ngIf="type == 'transaction'">
+            No data found for the selecte time range.<br/>Please select other time range.
+        </p>
+        <p class="body-emphasized-text" *ngIf="type == 'inventory'">
+            No data found for the selected category.<br/>Please select other category.
+        </p>
+    </div>
+</div>

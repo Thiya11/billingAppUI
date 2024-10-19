@@ -22,8 +22,6 @@ header {
 .custom-header {
     background-color: $primary_accent_color;
     color: $white !important;
-    margin: 0.5rem;
-    border-radius: 18px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -72,8 +70,6 @@ header {
 footer {
     background-color: $primary_accent_color;
     color: $white;
-    margin: 0.5rem;
-    border-radius: 18px;
     text-align: center;
     padding: 20px 0;
 }
@@ -83,7 +79,7 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 99%;
+    width: 100%;
 }
 
 .footer-container {
@@ -318,7 +314,7 @@ ng-select > div {
 }
 
 .ng-select-container {
-    border: 1px solid $secondary_accent_color !important;
+    border: 1px solid $secondary_accent_color;
     box-sizing: border-box !important;
     cursor: pointer !important;
     user-select: none !important;
@@ -330,17 +326,17 @@ ng-select > div {
 }
 
 .ng-select-opened:not(.ng-select-opened) {
-    border: 1px solid $secondary_accent_color !important;
+    border: 1px solid $secondary_accent_color;
     outline: none !important;
 }
 
 .ng-select > .ng-select-container:hover {
-    border: 1px solid $secondary_accent_color !important;
+    border: 1px solid $secondary_accent_color;
     outline: none !important;
 }
 
 .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
-    border: 1px solid $secondary_accent_color !important;
+    border: 1px solid $secondary_accent_color;
     box-shadow: 0 0 0 0 !important;
     outline: none !important;
 }
@@ -413,7 +409,7 @@ ng-select > div {
 //error page
 
 .min-height-standard {
-    min-height:541px;
+    min-height:567px;
 }
 
 .error-page {
@@ -712,6 +708,88 @@ tbody tr td {
     padding: 0.25rem;
     border: none;
     border-bottom: 1px solid $grey-light;
+}
+
+//overview component 
+
+.overview-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.graph-row-first, .graph-row-third {
+    display: flex;
+    flex-direction: row;
+    gap: 1.33rem;
+    padding: 0.5rem 1rem;
+}
+
+.graph-row-first > div, .graph-row-third > div {
+    background-color: $white;
+    border-radius: 16px;
+}
+
+.graph-box {
+    padding: 1.25rem;
+}
+
+.graph-select .ng-select-container {
+    border: none;
+    border-bottom: 1px solid $blue-dark !important;
+}
+
+.graph-select > .ng-select-container:hover {
+    border: none;
+    outline: none !important;
+}
+
+.graph-select.ng-select-opened:not(.ng-select-opened) {
+    border: none;
+    outline: none !important;
+}
+
+.graph-select.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+    border: none;
+    box-shadow: 0 0 0 0 !important;
+    outline: none !important;
+}
+
+.graph-top-left {
+    flex: 2;
+}
+
+.graph-top-right {
+    flex: 1;
+}
+
+.graph-middle-left, .graph-middle-right {
+    flex: 1;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+  }
+
+.graph-row-second {
+    background-color: $white;
+    margin: 0.5rem 1rem;
+    border-radius: 16px;
+}
+
+.bar-graph {
+    background-color: $blue-secondary;
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+
+.no-data-message {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    height: 400px;
 }
 
 ::-webkit-scrollbar{
