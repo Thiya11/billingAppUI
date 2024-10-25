@@ -346,6 +346,7 @@ ng-select > div {
 .inventory-container {
     display: flex;
     flex-direction: row;
+    padding: 0rem 1rem;
 }
 
 .inventory-item {
@@ -354,8 +355,32 @@ ng-select > div {
     padding: 1rem 0.5rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin: 1rem;
 }
+
+.inventory-item:nth-child(even) {
+    background-color: $grey-secondary;
+    .inventory-item-fields {
+        border-right: 1px solid $black-secondary;
+    }
+}
+
+.inventory-item-fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border-right: 1px solid $grey-secondary;
+    gap: 2%;
+}
+
+.message {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 
 .inventory-item:hover {
     box-shadow:  rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -365,6 +390,36 @@ ng-select > div {
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+}
+
+.inventory-section.elobrated {
+    flex: 1 1 calc(33.33% - 8px);
+    align-items: flex-start;
+}
+
+.inventory-label.elobrated {
+    text-align: left;
+}
+
+.quick-actions {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-actions.elobrated {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.inventory-section-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inventory-section-item.elobrated {
+    align-items: flex-start;
 }
 
 .inventory-label {
@@ -382,7 +437,7 @@ ng-select > div {
 }
 
 .inventory-input-number {
-    width: 100px;
+    width: 200px;
     height: 5.25vh;
 }
 
@@ -403,7 +458,7 @@ ng-select > div {
 
 .inventory-button-group {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 //error page
