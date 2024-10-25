@@ -1,5 +1,5 @@
 <div class="container min-height-standard">
-    <div class="inventory-container container col-12">
+    <div class="inventory-container col-12">
         <div class="col-3 col-md-2 mt-4 inventory-sidebar mx-2">
             <div class="my-2">
                 <button class="btn btn-success" (click)="onShowInventoryModal()">
@@ -15,6 +15,7 @@
              <ng-select
               [items]="quantityList"
               bindLabel="label"
+              [(ngModel)]="selectedQuantity"
               bindValue="value"
               [clearable]="false"
               [multiple]="false"
@@ -24,46 +25,51 @@
            </div>
         </div>
         <div class="inventory-list col-9 col-md-10">
-            <div class="inventory-item " *ngFor="let inventory of inventoryList | searchPipe : searchTerm : 'inventory' ">
-                <div class="inventory-section" *ngFor="let field of visibleFields">
-                    <label class="inventory-label">
-                        {{field.label}}
-                    </label>
-                    <label class="inventory-value" *ngIf="field.value == 'itemId'" [ngClass]="inventory['isEdit'] ? 'margin-top-3' : ''">
-                        {{inventory[field.value]}}
-                     </label>
-                     <label class="inventory-value" *ngIf="field.value == 'category'" [ngClass]="inventory['isEdit'] ? 'margin-top-3' : ''">
-                        {{inventory[field.value] | inventoryType : 'category'}}
-                     </label>
-                    <ng-container *ngIf="!inventory.isEdit && field.value != 'itemId' && field.value != 'category'">
-                        <label class="inventory-value" *ngIf="field.value == 'quantityType'">
-                            {{inventory[field.value] | inventoryType : 'quantityType'}}
-                         </label>
-                         <label class="inventory-value" *ngIf="field.value != 'quantityType'">
-                             {{inventory[field.value]}}
-                          </label>
-                    </ng-container>
-                    <ng-container *ngIf="inventory.isEdit">
-                        <div class="inventory-form-group mt-2">
-                        <input class="inventory-input" type="text" *ngIf="field.value == 'itemName'" 
-                         [placeholder]="field.label" [(ngModel)]="inventory[field.value]">
-                        <input  class="inventory-input-number" type="number"
-                         *ngIf="field.value == 'pricePerItem' || field.value == 'quantityRemaining' || field.value == 'taxes'"
-                         [placeholder]="field.label" min="0" [(ngModel)]="inventory[field.value]">
+         <ng-container *ngIf="filteredInventoryList.length">
+            <div class="inventory-item col-12" *ngFor="let inventory of filteredInventoryList | searchPipe : searchTerm : 'inventory' ">
+                <div class="inventory-item-fields col-xl-10 col-lg-9 col-md-8 col-9" [ngClass]="inventory.isEdit ? 'elobrated': ''">
+                    <div class="inventory-section" [ngClass]="inventory.isEdit ? 'elobrated': ''" *ngFor="let field of visibleFields">
+                        <div class="inventory-section-item" [ngClass]="inventory.isEdit ? 'elobrated': ''">
+                            <label class="inventory-label" [ngClass]="inventory.isEdit ? 'elobrated': ''">
+                                {{field.label}}
+                            </label>
+                            <label class="inventory-value" *ngIf="field.value == 'itemId'" [ngClass]="inventory['isEdit'] ? 'margin-top-3' : ''">
+                                {{inventory[field.value]}}
+                             </label>
+                            <label class="inventory-value" *ngIf="field.value == 'category'" [ngClass]="inventory['isEdit'] ? 'margin-top-3' : ''">
+                                {{inventory[field.value] | inventoryType : 'category'}}
+                            </label>
+                            <ng-container *ngIf="!inventory.isEdit && field.value != 'itemId' && field.value != 'category'">
+                                <label class="inventory-value" *ngIf="field.value == 'quantityType'">
+                                    {{inventory[field.value] | inventoryType : 'quantityType'}}
+                                 </label>
+                                 <label class="inventory-value" *ngIf="field.value != 'quantityType'">
+                                     {{inventory[field.value]}}
+                                  </label>
+                            </ng-container>
+                            <ng-container *ngIf="inventory.isEdit">
+                                <div class="inventory-form-group mt-2">
+                                <input class="form-group-item inventory-input" type="text" *ngIf="field.value == 'itemName'" 
+                                 [placeholder]="field.label" [(ngModel)]="inventory[field.value]">
+                                <input  class="form-group-item inventory-input-number" type="number"
+                                 *ngIf="field.value == 'pricePerItem' || field.value == 'quantityRemaining' || field.value == 'taxes'"
+                                 [placeholder]="field.label" min="0" [(ngModel)]="inventory[field.value]">
+                                </div>
+                                <ng-select *ngIf="field.value == 'quantityType'"
+                                           [items]="quantityTypeOptions" 
+                                           class="inventory-input-number form-group-item"
+                                           bindLabel="label"
+                                           bindValue="value"
+                                           [clearable]="false"
+                                           [multiple]="false"
+                                           [(ngModel)]="inventory.quantityType"
+                                           placeholder="Quantity">
+                                </ng-select>
+                            </ng-container>
                         </div>
-                        <ng-select *ngIf="field.value == 'quantityType'"
-                                   [items]="quantityTypeOptions" 
-                                   class="inventory-input-number"
-                                   bindLabel="label"
-                                   bindValue="value"
-                                   [clearable]="false"
-                                   [multiple]="false"
-                                   [(ngModel)]="inventory.quantityType"
-                                   placeholder="Quantity">
-                        </ng-select>
-                    </ng-container>
+                    </div>
                 </div>
-                <div class="inventory-section">
+                <div class="quick-actions col-xl-2 col-lg-3 col-md-4 col-3" [ngClass]="inventory.isEdit ? 'elobrated': ''">
                     <label class="inventory-label">
                         Quick Operations
                     </label>
@@ -72,11 +78,15 @@
                         <i class="bi bi-trash quick-action-icons" title="Delete Inventory" (click)="onDeleteInventory(inventory['itemId'])"></i>
                     </label>
                     <div class="inventory-button-group mt-2" *ngIf="inventory.isEdit">
-                        <button class="btn btn-success mx-2" (click)="onSubmit(inventory)">Submit</button>
+                        <button class="btn btn-success my-2" (click)="onSubmit(inventory)">Submit</button>
                         <button class="btn btn-cancel" (click)="onEditInventory(inventory['itemId'],'cancel')">Cancel</button>
                     </div>
                 </div>
-            </div>     
+            </div>
+         </ng-container>
+         <div class="message" *ngIf="!filteredInventoryList.length">
+            There's no inventory for selected category
+         </div>
         </div>   
     </div>
 </div>

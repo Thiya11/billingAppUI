@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.1] - 2024-10-25
+### Fixes
+- Category wise filtering option issue not showing inventory items properly issue fixed.
+- Added CSS to display the editable inventory items responsive issue fixed.
+
 ## [0.4.0] - 2024-10-06
 ### Added
 - new Feature to show analysis graphs on overview page.

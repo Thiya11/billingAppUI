@@ -20,6 +20,8 @@ export class InventoryComponent implements OnInit {
   public errorMap:any;
   public searchTerm:string;
   public elementRef:NgbModalRef;
+  public selectedQuantity:number;
+  public filteredInventoryList: Array<InventoryModal> = [];
   public quantityList = QUANTITY_CATEGORY_LIST;
   public errorOrderMap = new Map(
     [
@@ -39,7 +41,7 @@ export class InventoryComponent implements OnInit {
    ) {}
   
    ngOnInit(): void { 
-     this.getInventoryItems()
+     this.getInventoryItems();
      this.setErrorMap()
    }
 
@@ -54,12 +56,14 @@ export class InventoryComponent implements OnInit {
      ])
    }
 
-   onChangeCategory(event) {
-    console.log(event)
-     this.inventoryList = this.inventoryList.filter((item) => {
-      return item.category.toString() === event.toString()
-     })
-     console.log(this.inventoryList)
+   onChangeCategory(event:any) {
+    if (event === 0) {
+      this.filteredInventoryList = this.inventoryList;
+    } else {
+      this.filteredInventoryList = this.inventoryList.filter((item) => {
+        return item.category.toString() === event.toString()
+       })
+    }
    }
 
    onShowInventoryModal() {
@@ -77,6 +81,8 @@ export class InventoryComponent implements OnInit {
    getInventoryItems() {
      this.httpClient.get(URL_CONFIG.getInventory).subscribe((data)=> {
        this.inventoryList = data['success'];
+       this.selectedQuantity = 0;
+       this.onChangeCategory(this.selectedQuantity);
      }, 
     (err)=> {
       console.log(err)
