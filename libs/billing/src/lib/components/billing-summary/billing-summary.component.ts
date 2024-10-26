@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { URL_CONFIG } from "libs/shared/configs/url-mapper";
 import { CommonService } from "libs/shared/services/common.service";
@@ -19,6 +20,7 @@ export class BillingSummaryComponent implements OnInit {
 
     constructor(
         private httpClient: HttpClient,
+        private router: Router,
         public activeModal: NgbActiveModal,
         private commonService: CommonService
     ){}
@@ -27,6 +29,11 @@ export class BillingSummaryComponent implements OnInit {
         this.billTime       = this.commonService.getCurrentTimeZoneTime(this.billData.billDate);
         this.purchasedItems = this.billData.purchasedItems; 
         this.totalAmount    = Number(this.billData.totalTax) + Number(this.billData.totalPrice);
+    }
+
+    movetoTransactions() {
+        this.activeModal.close();
+        this.router.navigate(['/transactions']);
     }
 
 }

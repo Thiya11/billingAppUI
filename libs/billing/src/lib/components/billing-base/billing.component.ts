@@ -5,7 +5,7 @@ import { BillItemModal } from '../../modals/bill-item.modal';
 import { StorageService } from 'libs/shared/services/storage.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { BillingSummaryComponent } from '../billing-summary/billing-summary.component';
-import { BILL_GEN_VISIBILE_FIELDS } from 'libs/shared/configs/general-values';
+import { BILL_GEN_VISIBILE_FIELDS, QUANTITY_CATEGORY_LIST } from 'libs/shared/configs/general-values';
 
 @Component({
   selector: 'lib-billing',
@@ -23,6 +23,9 @@ export class BillingComponent implements OnInit {
   public availableBillingKeys = BILL_GEN_VISIBILE_FIELDS;
   public billInfo:any;
   public elementRef:NgbModalRef;
+  public categoryList:any = QUANTITY_CATEGORY_LIST;
+  public selectedCategory:number = 0; 
+  public filteredInventory:any   = [];
   
   constructor(
     private httpClient: HttpClient,
@@ -34,6 +37,8 @@ export class BillingComponent implements OnInit {
     this.httpClient.get(URL_CONFIG.getInventory)
     .subscribe((data:any)=> {
       this.inventoryList = data.success;
+      this.selectedCategory = 0;
+      this.categoryChange(this.selectedCategory);
     },
     err => {
       console.log(err);
@@ -167,7 +172,17 @@ export class BillingComponent implements OnInit {
 
   customSearchFn(term:string, item:any): boolean {
     term = term.toLowerCase();
-    return item.itemName.includes(term) || item.itemId.toString().includes(term) || item.category.toString().includes(term);
+    return item.itemName.toLowerCase().includes(term) || item.itemId.toString().includes(term);
+  }
+
+  categoryChange(category:number) {
+    if (category === 0) {
+      this.filteredInventory = this.inventoryList;
+    } else {
+      this.filteredInventory = this.inventoryList.filter((inventory)=> {
+        return inventory.category === category;
+      })
+    }
   }
 
 }

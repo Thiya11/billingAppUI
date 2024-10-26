@@ -480,24 +480,26 @@ ng-select > div {
 }
 
 .bill-generator-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 10rem;
-    gap: 3rem;
-    justify-content: space-evenly;
+    background-color: $white;
+    border-radius: 14px;
+    padding: 1.5rem;
 }
 
 .bill-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    padding-right: 1rem;
+    max-height: 56vh;
 }
 
 .bill-info-sec {
     font-weight: 500;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: $white;
+    padding: 1.5rem;
+    border-radius: 14px;
 }
 
 .bill-numerics {
@@ -527,8 +529,21 @@ ng-select > div {
 }
 
 .bill-item {
-    max-height: 500px;
-    overflow-y: scroll;
+    max-height: 43vh;
+}
+
+.bill-generator-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+}
+
+.bill-section-table {
+    padding: 1.5rem;
+    background-color: $white;
+    border-radius: 14px;
+    max-height: 55vh;
 }
 
 .bill-section-btn {
