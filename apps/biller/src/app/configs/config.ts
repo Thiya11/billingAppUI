@@ -1,7 +1,7 @@
 export const SITE_CONFIGS =  {
     mainAppName:"Biller Application",
     mainWebsite:"billerApplication",
-    baseUrl:"http://localhost:3000/",
+    baseUrl:"https://kitsunechaos.com/biller-app/REST/",
     siteAbbr:'BILL'
 }
 
