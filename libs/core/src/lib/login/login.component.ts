@@ -102,6 +102,17 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  guestMode() {
+    this.httpClient.get(URL_CONFIG.guestMode)
+      .subscribe((data:any) => {
+        this.storageService.tokenDetails = data['success'].token;
+        this.getUserDetails(data['success'].userId);
+      }, 
+      err => {
+        console.log(err)
+      })
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
      this.loginUser('normal');
