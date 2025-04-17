@@ -27,8 +27,6 @@ export class ValidatorErrorMessage {
             return ValidatorErrorMessage.errorMessages[type](params,name)
         }
     }
-
-    
 } 
 
 @Directive({

@@ -5,6 +5,7 @@ import { OverviewComponent } from "./overview/overview.component";
 import { AuthGaurd } from "libs/shared/gaurds/auth.guard";
 import { RegisterComponent } from "./register/register.component";
 import { IsLoggedInGaurd } from "libs/shared/gaurds/isLoggedIn.guard";
+import { ForgotResetPasswordComponent } from "./forgot-reset-password/forgot-reset-password.component";
 
 const routes:Routes = [
     {
@@ -36,6 +37,22 @@ const routes:Routes = [
             {breadCrumbText:'REGISTER'}
         ]
     },
+    {
+        path:'forgot-password/:token',
+        component:ForgotResetPasswordComponent,
+        canActivate:[IsLoggedInGaurd],
+        data:[
+            {breadCrumbText:'FORGOT_PASSWORD'}
+        ]
+    },
+    {
+        path:'reset-password/:token',
+        component:ForgotResetPasswordComponent,
+        canActivate:[IsLoggedInGaurd],
+        data: [
+            {breadCrumbText:'RESET_PASSWORD'}
+        ]
+    }
 ];
 
 @NgModule({

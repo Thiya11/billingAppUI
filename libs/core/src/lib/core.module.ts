@@ -11,6 +11,7 @@ import { SharedValidatorsModule } from 'libs/shared/modules/shared-validators.mo
 import { OverviewComponent } from './overview/overview.component';
 import { RegisterComponent } from './register/register.component';
 import { SharedComponentsModule } from 'libs/shared/components/shared-component.module';
+import { ForgotResetPasswordComponent } from './forgot-reset-password/forgot-reset-password.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedComponentsModule } from 'libs/shared/components/shared-component.
     FooterComponent,
     HeaderComponent,
     OverviewComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotResetPasswordComponent
   ],
   imports: [
     RouterModule,
