@@ -1,5 +1,5 @@
 export const MONTH_LIST                      = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-export const BILL_GEN_VISIBILE_FIELDS        = ['Item Id', 'Item Name', 'Category Id', 'Price Per Quantity (₹)', 'Quantity Type', 'Tax (%)', 'Quantity', 'Price (₹)', 'Quick Actions'];
+export const BILL_GEN_VISIBILE_FIELDS        = ['Id', 'Name', 'Category', 'Price Per Quantity (₹)', 'Quantity Type', 'Quantity', 'Price (₹)', 'Tax (%)', 'Quick Actions'];
 export const TRANSACTION_INFO_VISIBLE_FIELDS = ['Item Id', 'Item Name', 'Category Id', 'Price Per Quantity (₹)', 'Quantity Type', 'Tax (₹)', 'Quantity', 'Price (₹)'];
 
 export const ERROR_MESSAGES = {

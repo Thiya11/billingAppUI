@@ -381,6 +381,32 @@ ng-select > div {
     margin-top: 2rem;
 }
 
+.quick-search-container {
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.quick-search-container > ng-select > .ng-select-container {
+    border: none;
+}
+
+.quick-search-container > ng-select > .ng-select-container:hover {
+    border: none;
+    box-shadow: none;
+}
+
+.quick-search-container > ng-select > .ng-select-container:focus {
+    border: none;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.quick-search-container > ng-select.ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+    border: none;
+}
+
 
 .inventory-item:hover {
     box-shadow:  rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -483,7 +509,6 @@ ng-select > div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 10rem;
     gap: 3rem;
     justify-content: space-evenly;
 }
@@ -495,13 +520,16 @@ ng-select > div {
 }
 
 .bill-info-sec {
-    font-weight: 500;
+    font-weight: 600;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 14px;
+    background-color: white;
 }
 
 .bill-numerics {
-    font-weight: 300 !important;
+    font-weight: 800 !important;
 }
 
 .bill-side-info {
@@ -509,11 +537,17 @@ ng-select > div {
     flex-direction: column;
 }
 
-.total-amount {
-    margin: 0 1rem;
-    border: 1px solid lightblue;
-    padding: 0.25rem;
+.bill-generator-body {
+    display: flex;
+    flex-direction: row;
+    height: 52vh;
 }
+
+// .total-amount {
+//     margin: 0 1rem;
+//     border: 1px solid lightblue;
+//     padding: 0.25rem;
+// }
 
 .total-amount span {
     display: flex;
@@ -526,21 +560,34 @@ ng-select > div {
     padding: 0 1.5rem;
 }
 
+.bill-section-top {
+    margin-bottom: 5rem;
+}
+
+.tot-amount {
+    border-top: 2px dashed lightslategrey;
+}
+
 .bill-item {
-    max-height: 500px;
+    max-height: 48vh;
     overflow-y: scroll;
 }
 
 .bill-section-btn {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    margin-top: 2rem;
+    justify-content: center;
 }
 
 .bill-info-msg {
     display: flex;
     flex-direction:column;
     align-items: center;
+}
+
+.quantity-action i {
+    cursor: pointer;
 }
 
 .bill-summary-table {
@@ -660,6 +707,12 @@ ng-select > div {
 
 table {
     width: 100%;
+}
+
+.bill-summary {
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    background-color: $white;
 }
 
 .transaction-info-summary {
