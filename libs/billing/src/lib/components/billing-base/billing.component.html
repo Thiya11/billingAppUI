@@ -1,67 +1,79 @@
 
   <div class="bill-generator-container container">
     <div class="mt-3 col-6">
-     <h4>Quick Search</h4>
      <div class="quick-search-container form-group">
       <ng-select #searchTerm
-      [items]="inventoryList"
-      bindLabel="itemName"
-      bindValue="itemId"
-      [multiple]="false"
-      [clearable]="false"
-      [searchFn]="customSearchFn"
-      placeholder="Enter Item Name or Item Id"
-      (change)="onInventoryChange($event)">
+        [items]="inventoryList"
+        bindLabel="itemName"
+        bindValue="itemId"
+        [multiple]="false"
+        [clearable]="false"
+        [searchFn]="customSearchFn"
+        placeholder="Enter Product Name or Id"
+        (change)="onInventoryChange($event)"
+      >
       <ng-template ng-option-tmp let-item="item" let-index="index">
          <div class="option-template">
            <span class="item-id"> {{'[' + item.itemId + '] '}} - </span>
-           <span class="item-value"> {{item.itemName}} - </span>
-           <span class="item-id"> [ {{item.category | inventoryType : 'category'}} ]</span>
+           <span class="item-value"> {{item.itemName}} </span>
          </div>
       </ng-template>
       </ng-select>
      </div>
    </div>
-   <div class="col-4 bill-info-sec">
-    <div class="bill-side-info">
-      <label>Bill Id: <span class="bill-numerics">0</span></label>
-      <label>Total Price: <span class="bill-numerics">{{totalPrice}}</span></label>
-      <label>Total Taxes: <span class="bill-numerics">{{totalTaxes}}</span></label>
-    </div>
-    <label class="total-amount">Total Amount Payable<span class="text-center">{{totalAmountPayable}}</span></label>
-   </div>
   </div>
-  <div class="bill-section container p-2 mt-3">
-    <ng-container *ngIf="selectedItemsArr.length">
-      <div class="bill-item p-2 col-11">
-        <table>
-          <thead>
-            <th *ngFor="let heading of availableBillingKeys">{{heading}}</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let billItem of selectedItemsArr">
-              <td>{{billItem.itemId}}</td>
-              <td>{{billItem.itemName}}</td>
-              <td>{{billItem.categoryId | inventoryType : 'category' }}</td>
-              <td>{{billItem.pricePerItem}}</td>
-              <td>{{billItem.quantityType | inventoryType : 'quantityType'}}</td>
-              <td>{{billItem.taxes}}</td>
-              <td>
-                <i class="bi bi-plus-circle" (click)="onAddQuantity(billItem.itemId)"></i>
-                 <span class="bill-quantity">{{billItem.quantity}}</span>
-                <i class="bi bi-dash-circle" (click)="onReduceQuantity(billItem.itemId)"></i>
-              </td>
-              <td>{{billItem.price}}</td>
-              <td><i class="bi bi-trash quick-action-icons" (click)="onDeleteQuantity(billItem.itemId)"></i></td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="bill-generator-body">
+    <div class="bill-section container p-2 mt-3">
+      <ng-container *ngIf="selectedItemsArr.length">
+        <div class="bill-item p-2 col-11">
+          <table>
+            <thead>
+              <th *ngFor="let heading of availableBillingKeys">{{heading}}</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let billItem of selectedItemsArr">
+                <td>{{billItem.itemId}}</td>
+                <td>{{billItem.itemName}}</td>
+                <td>{{billItem.categoryId | inventoryType : 'category' }}</td>
+                <td>{{billItem.pricePerItem}}</td>
+                <td>{{billItem.quantityType | inventoryType : 'quantityType'}}</td>
+                <td class="quantity-action">
+                  <i class="bi bi-dash-circle" (click)="onReduceQuantity(billItem.itemId)"></i>
+                   <span class="bill-quantity">{{billItem.quantity}}</span>
+                   <i class="bi bi-plus-circle" (click)="onAddQuantity(billItem.itemId)"></i>
+                </td>
+                <td>{{billItem.price}}</td>
+                <td>{{billItem.taxes}}</td>
+                <td><i class="bi bi-trash quick-action-icons" (click)="onDeleteQuantity(billItem.itemId)"></i></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      </ng-container>
+      <ng-container *ngIf="!selectedItemsArr.length">
+        <div class="mt-3 bill-info-msg">Select Items To Generate A New Bill.</div>
+      </ng-container>
     </div>
-    <div class="bill-section-btn mt-3 col-11">
-      <button class="btn btn-success" (click)="onSubmitBill()">Submit</button>
-    </div>
-    </ng-container>
-    <ng-container *ngIf="!selectedItemsArr.length">
-      <div class="mt-3 bill-info-msg">Select Items To Generate A New Bill.</div>
-    </ng-container>
+    <div class="col-4 bill-summary mt-2" *ngIf="selectedItemsArr.length">
+      <h3 class="card-title-text">Bill Summary</h3>
+      <div class="bill-side-info">
+       <div class="bill-section-top">
+        <div class="transaction-summary-item">
+          <label class="body-emphasized-text">Total Price (₹): </label> 
+          <span class="body-regular-text">{{totalPrice}}</span>
+        </div>
+        <div class="transaction-summary-item">
+          <label class="body-emphasized-text">Total Taxes (₹): </label> 
+          <span class="body-regular-text">{{totalTaxes}}</span>
+        </div>
+       </div>
+        <div class="transaction-summary-item mt-2 mb-2 tot-amount">
+          <label class="body-emphasized-text">Total Amount Payable (₹): </label> 
+          <span class="body-bolder-text">{{totalAmountPayable}}</span>
+        </div>
+      </div>
+      <div class="bill-section-btn">
+        <button class="btn btn-success" (click)="onSubmitBill()">Pay & Get Bill</button>
+      </div>
+     </div>
   </div>
