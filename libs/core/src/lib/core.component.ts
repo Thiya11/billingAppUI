@@ -21,7 +21,7 @@ export class CoreComponent implements OnInit {
       }),
       mergeMap(route => route.data)
     ).subscribe((data) => {
-      this.showMainMenu = data[0]?.breadCrumbText == 'LOGIN' || false;
+      this.showMainMenu = data[0]?.breadCrumbText == 'LOGIN' || data[0]?.breadCrumbText == 'REGISTER';
     })
   }
 

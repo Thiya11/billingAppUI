@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { AbstractControlOptions, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { SharedPasswordValidationComponent } from "libs/shared/components/password-validation/shared-password-validation.component";
 import { URL_CONFIG } from "libs/shared/configs/url-mapper";
 import { confirmPasswordValidator } from "libs/shared/validators/shared-error.validator";
 
@@ -13,6 +14,7 @@ import { confirmPasswordValidator } from "libs/shared/validators/shared-error.va
 export class RegisterComponent implements OnInit {
 
     registerForm:FormGroup;
+    @ViewChild('fieldValidationPassword', {static:false}) fieldValidationComponent:SharedPasswordValidationComponent;
 
     constructor(
         private fb:FormBuilder,
@@ -29,8 +31,10 @@ export class RegisterComponent implements OnInit {
             firstName: this.fb.control('', Validators.required),
             lastName: this.fb.control('', Validators.required),
             email: this.fb.control('', Validators.required),
-            password: this.fb.control('', Validators.required),
-            confirmPassword:this.fb.control('', Validators.required)
+            password: this.fb.control('', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~`!@#$%^&*()_\-+={[}\]|\:;"'<,>.?\\/])[A-Za-z0-9 ~`!@#$%^&*()_\-+={[}\]|\:;"'<,>.?\\/]{8,}$/
+)]),
+            confirmPassword:this.fb.control('',[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~`!@#$%^&*()_\-+={[}\]|\:;"'<,>.?\\/])[A-Za-z0-9 ~`!@#$%^&*()_\-+={[}\]|\:;"'<,>.?\\/]{8,}$/
+)])
         },
         {Validators:confirmPasswordValidator} as AbstractControlOptions)
     }
@@ -40,7 +44,7 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit() {
-        if(this.registerForm.valid) {
+        if(this.registerForm.valid && this.f.password == this.f.confirmPassword) {
             let registerFormValue = this.registerForm.value;
             let reqObj = {
                 firstName: registerFormValue.firstName,
@@ -56,6 +60,15 @@ export class RegisterComponent implements OnInit {
             }, err=> {
                 console.log('Unable to register User', err);
             })
+        }
+        if(this.f.password != this.f.confirmPassword) {
+            console.log('password mismatch error...')
+        }
+    }
+
+    onValidatePassword(value) {
+        if(value) {
+            this.fieldValidationComponent.onValidatePassword(value);
         }
     }
 }

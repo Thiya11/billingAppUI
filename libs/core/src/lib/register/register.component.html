@@ -28,8 +28,11 @@
             <div class="form-group row">
                 <label class="form-label">Password <span class="required-text">*</span></label>
                 <div class="col-xs-12">
-                    <input type="text"  class="form-control" placeholder="Enter Your Email" formControlName="password"/>
+                    <input type="text"  class="form-control" placeholder="Enter Your Email" formControlName="password" (keyup)="onValidatePassword(f.password.value)"/>
                     <shared-error name="Password" [formControlRef]="f.password"></shared-error>
+                   <ng-container *ngIf="f.password.value">
+                    <shared-password-validation #fieldValidationPassword></shared-password-validation>
+                   </ng-container>
                 </div>
             </div>
             <div class="form-group row">

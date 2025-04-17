@@ -7,6 +7,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { ComparisionGraphComponent } from "./comparision-graph/comparision-graph.component";
 import { PieGraphComponent } from "./pie-graph/pie-graph.component";
 import { LineGraphComponent } from "./line-graph/line-graph.component";
+import { SharedPasswordValidationComponent } from "./password-validation/shared-password-validation.component";
 
 @NgModule({
     imports:[
@@ -22,13 +23,15 @@ import { LineGraphComponent } from "./line-graph/line-graph.component";
         BarGraphComponent,
         ComparisionGraphComponent,
         PieGraphComponent,
-        LineGraphComponent
+        LineGraphComponent,
+        SharedPasswordValidationComponent
     ],
     exports:[
         BarGraphComponent,
         ComparisionGraphComponent,
         PieGraphComponent,
-        LineGraphComponent
+        LineGraphComponent,
+        SharedPasswordValidationComponent
     ]
 })
 
