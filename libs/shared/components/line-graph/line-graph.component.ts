@@ -11,7 +11,7 @@ export class LineGraphComponent implements AfterViewInit {
     @Input() type:string;
     @Input() graphLabels:any;
     @Input() graphValues:any;
-    @Input() selectedTransactionTime = 3;
+    @Input() selectedTransactionTime = 6;
     graphOptions:any;
     timeRangeOptions:any = GRAPH_COMMON_TIME_RANGE;
 

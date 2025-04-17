@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { CoreModule } from 'libs/core/src/lib/core.module';
 import { SettingsModule } from 'libs/settings/src/public-api';
 import { SharedModule } from 'libs/shared/shared.module';
@@ -43,7 +43,7 @@ import { TransactionsModule } from 'libs/transactions/src/lib/transactions.modul
     )
   ],
   providers: [
-    
+    {provide:LocationStrategy, useClass:PathLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

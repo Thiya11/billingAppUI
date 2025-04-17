@@ -860,4 +860,18 @@ tbody tr td {
     border-radius: 3px;
 }
 
+.guest-button {
+    color: $black-secondary;
+}
+
+.guest-button p {
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.guest-button p:hover {
+    color: $blue-dark;
+}
+
 @import url('./responsive.scss');
