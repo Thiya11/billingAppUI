@@ -12,7 +12,7 @@ export class BarGraphComponent implements AfterViewInit {
     @Input() type:string;
     @Input() graphLabels:any;
     @Input() graphValues:any;
-    @Input() selectedTransactionTime = 3;
+    @Input() selectedTransactionTime = 6;
     @Input() selectedInventoryCategory = 0;
     graphOptions:any;
     timeRangeOptions:any = GRAPH_COMMON_TIME_RANGE;

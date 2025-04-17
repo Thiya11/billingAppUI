@@ -13,7 +13,7 @@ export class ComparisionGraphComponent implements AfterViewInit {
     @Input() type:string;
     @Input() graphLabels:any;
     @Input() graphValues:any;
-    @Input()selectedTaxTime = 4;
+    @Input()selectedTaxTime = 6;
     timeRangeOptions:any = GRAPH_COMMON_TIME_RANGE;
     graphOptions:any;
 

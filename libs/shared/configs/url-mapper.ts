@@ -19,5 +19,6 @@ export const URL_CONFIG = {
     getTransactionAmount:'analysis/transactionAmount',
     getInventoryQuant:'analysis/inventoryQuantity/',
     getCategorySales:'analysis/totalCategorySales',
-    getTransactionCount:'analysis/totalTransactions'
+    getTransactionCount:'analysis/totalTransactions',
+    guestMode:'guestMode'
 }

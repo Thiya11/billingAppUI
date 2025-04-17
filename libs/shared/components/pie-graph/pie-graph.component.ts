@@ -11,7 +11,7 @@ import { CommonService } from "libs/shared/services/common.service";
 export class PieGraphComponent implements AfterViewInit {
     @Input() type:string;
     @Input() graphValues:any;
-    @Input() selectedCategoryTimeRange = 4;
+    @Input() selectedCategoryTimeRange = 6;
     timeRangeOptions:any = GRAPH_COMMON_TIME_RANGE;
     graphOptions:any;
 

@@ -25,11 +25,11 @@ export class OverviewComponent implements OnInit {
     inventoryQuantityLabel:Array<any>     = [];
     categorySaleAmount: Array<any>        = [];
     categoryLabels: Array<string>         = [];
-    initialTransactionRange: number       = 5;
-    initialTaxRange: number               = 5;
-    initialCategorySalesRange: number     = 5;
+    initialTransactionRange: number       = 6;
+    initialTaxRange: number               = 6;
+    initialCategorySalesRange: number     = 6;
     initialInventoryCategory: number      = 0;
-    initialTransactionCountRange: number  = 5;
+    initialTransactionCountRange: number  = 6;
     transactionStartDate:any;
     transactionEndDate:any;
 
@@ -39,7 +39,7 @@ export class OverviewComponent implements OnInit {
     ){}
 
     ngOnInit(): void {
-       this.getSelectedTimeRange(5, 'all');
+       this.getSelectedTimeRange(6, 'all');
        this.getInventoryQuantity();
        this.getSelectedTimeRange(this.initialCategorySalesRange, 'category');
        this.commonService.onTransactionTimeRangeChange$.subscribe((value)=> {
